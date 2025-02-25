@@ -10,7 +10,6 @@ solution:
 * nano /etc/hosts
 * nano /etc/docker/daemon.json {"devendra.harbor.com"}
 * service docker restart
-Hello 
 
 * /etc/hosts
 192.168.10.200 devendra.harbor.com
@@ -19,6 +18,5 @@ Hello
 {
   "insecure-registries": ["devendra.harbor.com:30002"]
 }
-~    
 
  helm install harbor harbor -n harbor -f harbor/values.yaml
