@@ -22,7 +22,7 @@ volumes:
         - emptyDir: {}
           name: blank-vol
         - hostPath:
-            path: /root/.kube/
+            path: /home/spinnaker/.kube
             type: ''
           name: kube-vol
 ### current folder 
