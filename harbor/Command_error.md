@@ -13,9 +13,10 @@ solution:
 * nano /etc/docker/daemon.json {"devendra.harbor.com"}
 * service docker restart
 ```
+//
 * /etc/hosts
 192.168.10.200 devendra.harbor.com
-
+//
 * /etc/docker/daemon.json
 {
   "insecure-registries": ["devendra.harbor.com:30002"]
