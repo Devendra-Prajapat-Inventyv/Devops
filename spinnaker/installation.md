@@ -132,4 +132,12 @@ hal config storage s3 edit --endpoint 192.168.10.87:6000 \
 ```
 hal deploy apply
 ```
-
+## set Ui 
+```
+hal config security ui edit \
+    --override-base-url "http://<host-ip>:30090"
+```
+```
+hal config security api edit \
+    --override-base-url "http://<host-ip>:30084"
+```
