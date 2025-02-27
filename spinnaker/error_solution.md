@@ -12,7 +12,7 @@ kubectl taint nodes devendra node-role.kubernetes.io/control-plane:NoSchedule-
 
 # problem 
 bash-5.0$ kubectl get pod -A
-Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:default:default" cannot list resource "pods" in API group "" at the cluster scope 
+  Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:default:default" cannot list resource "pods" in API group "" at the cluster scope 
 ```
 volumes:
         - hostPath:
@@ -33,4 +33,14 @@ mkdir -p /var/data/spinnaker
 cd .kube/
 chmod 777 ./config
 cd /home/spinnaker/
+```
+
+hal config storage s3 edit --endpoint 192.168.10.87:6000 \
+    --access-key-id 7KrOySEsJbrTW2NqbZY0 \
+    --secret-access-key 0dDa3u063gSRUi9tCPjuR2LzIu2tWZL4r1riZtbB \
+    --bucket spin \
+    --region us-east-1 
+
+```
+hal config storage edit --type s3
 ```
