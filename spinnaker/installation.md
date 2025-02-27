@@ -112,6 +112,14 @@ hal config provider kubernetes account add my-k8s-account   --context $(kubectl 
  hal config version edit --version 1.37.0
 hal config storage edit --type s3
 ```
+##  kubernetes account List 
+```
+hal config provider kubernetes account list
+```
+##  kubernetes account delete 
+```
+hal config provider kubernetes account delete my-k8s-account
+```
 ## Configure MinIO for Spinnaker Storage
 ```
 hal config storage s3 edit --endpoint 192.168.10.87:6000 \
