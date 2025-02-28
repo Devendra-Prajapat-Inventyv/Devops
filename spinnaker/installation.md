@@ -16,56 +16,29 @@ docker run -d \
 ```
 ## Halyard Deployment
 ```
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    role: svc-halyard
-  name: svc-infra-halyard
-  namespace: default
-spec:
-  ipFamilies:
-    - IPv4
-  ports:
-    - name: halyard
-      port: 8084
-      protocol: TCP
-      targetPort: 8084
-    - name: halyard-web
-      port: 9000
-      protocol: TCP
-      targetPort: 9000
-  selector:
-    instance: pod-halyard
-  sessionAffinity: None
-  type: ClusterIP
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    instance: pod-halyard
-    role: pod-halyard
+    app: spinnaker-pod
+
   name: pod-infra-halyard
-  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      instance: pod-halyard
-      role: pod-halyard
+      app: spinnaker-pod
+
   template:
     metadata:
-     # annotations:
-     #   sidecar.istio.io/inject: 'false'
       labels:
-        instance: pod-halyard
-        role: pod-halyard
+        app: spinnaker-pod
+
     spec:
       containers:
-        - image: 'us-docker.pkg.dev/spinnaker-community/docker/halyard:stable'
+        - image: "us-docker.pkg.dev/spinnaker-community/docker/halyard:stable"
           imagePullPolicy: IfNotPresent
-          name: pod-halyard
+          name: spinnaker-pod
           resources:
             requests:
               cpu: 100m
@@ -78,9 +51,10 @@ spec:
       initContainers:
         - command:
             - sh
-            - '-c'
+            - "-c"
             - >-
-              mkdir -p /home/spinnaker/.hal && chown -R 1000:1000 /home/spinnaker/.hal
+              mkdir -p /home/spinnaker/.hal && chown -R 1000:1000
+              /home/spinnaker/.hal
           image: busybox
           imagePullPolicy: Always
           name: update-permission-crt
@@ -92,13 +66,15 @@ spec:
       volumes:
         - hostPath:
             path: /var/data/spinnaker/
-            type: ''
+            type: ""
           name: hal-vol
+
         - emptyDir: {}
           name: blank-vol
+
         - hostPath:
             path: /root/.kube/
-            type: ''
+            type: ""
           name: kube-vol
 ```
 ## Configure Kubernetes Provider in Spinnaker
@@ -122,7 +98,7 @@ hal config provider kubernetes account delete my-k8s-account
 ```
 ## Configure MinIO for Spinnaker Storage
 ```
-hal config storage s3 edit --endpoint 192.168.10.87:6000 \
+hal config storage s3 edit --endpoint http://192.168.10.87:6000 \
     --access-key-id 7KrOySEsJbrTW2NqbZY0 \
     --secret-access-key 0dDa3u063gSRUi9tCPjuR2LzIu2tWZL4r1riZtbB \
     --bucket spin \
