@@ -16,13 +16,20 @@ solution:
 ``` 
 cd /etc/containerd/config.toml
 ```
-//
+## Configuration
+```
 * /etc/hosts
 192.168.10.200 devendra.harbor.com
 //
-* /etc/docker/daemon.json
+```
+## Create Insecure Registry
+```
+ /etc/docker/daemon.json
 {
   "insecure-registries": ["devendra.harbor.com:30002"]
 }
-
+```
+## Install Harbor Using Helm
+```
  helm install harbor harbor -n harbor -f harbor/values.yaml
+```
