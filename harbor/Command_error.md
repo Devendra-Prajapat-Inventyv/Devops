@@ -33,3 +33,15 @@ cd /etc/containerd/config.toml
 ```
  helm install harbor harbor -n harbor -f harbor/values.yaml
 ```
+
+# Error
+```
+ Normal   Pulling    12s (x2 over 27s)  kubelet            Pulling image "devendra.harbor.com:31000/inventyv/myimage"
+  Warning  Failed     12s (x2 over 27s)  kubelet            Failed to pull image "devendra.harbor.com:31000/inventyv/myimage": failed to pull and unpack image "devendra.harbor.com:31000/inventyv/myimage:latest": failed to resolve reference "devendra.harbor.com:31000/inventyv/myimage:latest": failed to do request: Head "https://devendra.harbor.com:31000/v2/inventyv/myimage/manifests/latest": http: server gave HTTP response to HTTPS client
+  Warning  Failed     12s (x2 over 27s)  kubelet            Error: ErrImagePull
+```
+# Solution
+```
+# Add end point into 
+/etc/containerd/config.toml
+```
