@@ -117,3 +117,6 @@ hal config security ui edit \
 hal config security api edit \
     --override-base-url "http://<host-ip>:30084"
 ```
+```
+resize2fs /dev/sda3 50G
+```
