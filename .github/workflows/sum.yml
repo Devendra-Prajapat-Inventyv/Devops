@@ -1,0 +1,20 @@
+name: Sum Of Two Variable 
+on:
+  workflow_dispatch:
+
+jobs:
+  sum:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sum of number
+        run: |
+          sum=$Number1+$Number2
+        env:
+          Number1: ${{  vars.Number1  }}
+          Number2: ${{  vars.Number2  }}
+          
+      - name: Display the sum
+        run: echo "The sum is $sum
+          
+          
+           
