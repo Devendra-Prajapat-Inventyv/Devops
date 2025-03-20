@@ -14,7 +14,7 @@ jobs:
           Number2: ${{  vars.Number2  }}
           
       - name: Display the sum
-        run: echo "The sum is $sum
+        run: echo "The sum is $sum"
           
           
            
