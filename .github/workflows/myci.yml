@@ -1,6 +1,7 @@
 name: Single Flow CI
 
-on: [push]
+on: 
+  - workflow_dispatch:   
 
 jobs:
   ci:
