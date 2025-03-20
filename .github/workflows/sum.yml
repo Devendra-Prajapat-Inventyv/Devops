@@ -10,8 +10,8 @@ jobs:
         run: |
           sum=$Number1+$Number2
         env:
-          Number1: ${{  vars.Number1  }}
-          Number2: ${{  vars.Number2  }}
+          Number1: ${{  vars.NUMBER1  }}
+          Number2: ${{  vars.NUMBER2  }}
           
       - name: Display the sum
         run: echo "The sum is $sum"
