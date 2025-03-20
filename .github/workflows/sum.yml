@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Sum of number
         run: |
-          echo `expr(${{github.event.inputs.number1}} + ${{github.event.inputs.number2}})`
+          echo $(expr(${{github.event.inputs.number1}} + ${{github.event.inputs.number2}}))
 
 
           
