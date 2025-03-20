@@ -1,6 +1,9 @@
 name: Sum Of Two Variable 
 on:
   workflow_dispatch:
+    inputs:
+      number1:
+      number2:
 
 jobs:
   sum:
@@ -8,13 +11,9 @@ jobs:
     steps:
       - name: Sum of number
         run: |
-          sum=$Number1+$Number2
-        env:
-          Number1: ${{  vars.NUMBER1  }}
-          Number2: ${{  vars.NUMBER2  }}
-          
-      - name: Display the sum
-        run: echo "The sum is $sum"
+          echo `expr(${{github.event.inputs.number1}} + ${{github.event.inputs.number2}})`
+
+
           
           
            
