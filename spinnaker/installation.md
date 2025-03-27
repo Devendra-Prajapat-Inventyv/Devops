@@ -99,10 +99,15 @@ hal config provider kubernetes account delete my-k8s-account
 ## Configure MinIO for Spinnaker Storage
 ```
 hal config storage s3 edit --endpoint http://192.168.10.87:6000 \
-    --access-key-id 7KrOySEsJbrTW2NqbZY0 \
-    --secret-access-key 0dDa3u063gSRUi9tCPjuR2LzIu2tWZL4r1riZtbB \
+    --access-key-id  \
+    --secret-access-key  \
     --bucket spin \
     --region us-east-1 
+```
+## Access Key
+```
+Access-key = 1YDlkeL0Xrp9auaWQ4S1
+Secret = JsqGarXB5oIlKldWLEOepWGf9gG7Cu9FAPpe7Rnf
 ```
 ## Deploy Spinnaker
 ```
@@ -116,4 +121,7 @@ hal config security ui edit \
 ```
 hal config security api edit \
     --override-base-url "http://<host-ip>:30084"
+```
+```
+resize2fs /dev/sda3 50G
 ```

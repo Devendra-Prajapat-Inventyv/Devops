@@ -1,0 +1,19 @@
+name: Sum Of Two Variable 
+on:
+  workflow_dispatch:
+    inputs:
+      number1:
+      number2:
+
+jobs:
+  sum:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sum of number
+        run: |
+          echo $(expr ${{github.event.inputs.number1}} + ${{github.event.inputs.number2}})
+
+
+          
+          
+           
