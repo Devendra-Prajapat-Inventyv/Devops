@@ -1,8 +1,12 @@
-## Generate an private key 
+## Generate an private key for authentication
 ```
 openssl genrsa --out devendra.key 2048
 ```
-## Generate an certificate signature key
+* `openssl` This is the command-line tool used to perform various cryptographic operations, including generating keys, certificates, and more.
+* `genrsa` RSA is a cryptographic algorithm to generate private key.
+* `2048` This is the key length. It specifies that the private key should be 2048 bits long.
+* 
+## Generate Certificate Signing Request for authorization
 ```
 openssl req -new -key devendra.key -out devendra.csr -subj "/CN=devendra/O=dev"
 ```
