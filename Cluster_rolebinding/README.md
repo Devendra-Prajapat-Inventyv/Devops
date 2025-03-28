@@ -17,6 +17,7 @@ openssl req -new -key devendra.key -out devendra.csr -subj "/CN=devendra/O=dev"
 ```
 sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in devendra.csr -out devendra.crt
  ```
+* `openssl x509:` This tells OpenSSL to work with X.509 certificates. X.509 is the standard format for public key certificates.
  ## Get the context 
  ```
   kubectl config get-contexts
