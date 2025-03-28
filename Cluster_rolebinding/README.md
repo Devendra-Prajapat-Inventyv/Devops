@@ -7,6 +7,9 @@ openssl genrsa --out devendra.key 2048
 * `2048` This is the key length. It specifies that the private key should be 2048 bits long.
 * 
 ## Generate Certificate Signing Request for authorization
+* A CSR is a request sent to a Certificate Authority (CA) to obtain a signed digital certificate.
+* `CN=devendra`stands for Common Name, and in this case, it represents the name for which the certificate is being requested.
+* `O=dev:` O stands for Organization. Here, it’s set to "dev", which could represent the organization or company name.
 ```
 openssl req -new -key devendra.key -out devendra.csr -subj "/CN=devendra/O=dev"
 ```
