@@ -22,7 +22,7 @@ sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki
 ```
 ## Create a context of the devendra user 
 ```
-kubectl config -set-context devendra-context --cluster=kubernetes --user=devendra --namespace=default
+kubectl config set-context devendra-context --cluster=kubernetes --user=devendra --namespace=default
 ```
 ## change the context
 ```
