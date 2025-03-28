@@ -18,6 +18,9 @@ openssl req -new -key devendra.key -out devendra.csr -subj "/CN=devendra/O=dev"
 sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in devendra.csr -out devendra.crt
  ```
 * `openssl x509:` This tells OpenSSL to work with X.509 certificates. X.509 is the standard format for public key certificates.
+* `-CA /etc/kubernetes/pki/ca.crt:` This specifies the path to the CA certificate (ca.crt) that will be used to sign the CSR. This certificate belongs to the Certificate Authority (CA) that will verify and sign your certificate.
+* -CAkey /etc/kubernetes/pki/ca.key:` This is the path to the private key (ca.key) of the CA. The private key is used to sign the CSR and generate the certificate.
+* 
  ## Get the context 
  ```
   kubectl config get-contexts
