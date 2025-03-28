@@ -14,6 +14,11 @@ sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki
  ```
   kubectl config get-contexts
 ```
+## Create User 
+```
+ kubectl config set-credentials devendra --client-certificate=devendra.crt --client-key=devendra.key
+
+```
 ## Create a context of the devendra user 
 ```
 kubectl config set-context devendra-context --cluster=kubernetes --user=devendra --namespace=default
