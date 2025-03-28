@@ -6,19 +6,13 @@ openssl genrsa --out devendra.key 2048
 ```
 openssl req -new -key devendra.key -out devendra.csr -subj "/CN=devendra/O=dev"
 ```
-
-## Create Certificate 
+## Create a user using certificate and key
 ```
- kubectl config set-credentials devendra --client-certificate=devendra.crt --client-key=devendra.key
+sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in devendra.csr -out devendra.crt
  ```
-
  ## Get the context 
  ```
   kubectl config get-contexts
-```
-## Create a user using certificate and key 
-```
-sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in devendra.csr -out devendra.crt
 ```
 ## Create a context of the devendra user 
 ```
